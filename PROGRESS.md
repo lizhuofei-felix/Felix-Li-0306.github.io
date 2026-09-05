@@ -1,6 +1,6 @@
 # Project Progress
 
-Last updated: 2026-08-17
+Last updated: 2026-09-05
 Current phase: Maintenance
 Project status: Operational static site; project guidance initialized
 
@@ -56,6 +56,8 @@ Maintain the published personal profile while preserving its current content acc
 - `python3 -m http.server 8000` with local HTTP requests — passed; `/` returned `200 OK` and contained the expected page title and contact section.
 
 ## Recent Changes
+
+- 2026-09-05: Updated education to Minors: Computer Science and Finance, the GitHub profile to lizhuofei-felix, and project links to the verified renamed repositories air-helper and comp2113-text-game. Refreshed cv.pdf from the current Public English variant. GitHub API confirmed both canonical project URLs. HTML parsing and internal/local asset checks passed; public PDF is byte-identical to the CV repository public output, contains no phone prefixes, and is one-page Letter. Playwright desktop (1280px) and mobile (375px) screenshots in light/dark appearance inspected; changed text and links wrap normally. No CSS or layout changes. git diff --check passed.
 
 - 2026-08-17: Published the CV and linked it from Contact, which needed a redacted build rather than a link. The CV lives in a separate *private* repo and its PDFs ship as *private* releases, so neither could be linked from a public page: a visitor would get a login wall, and making them public would expose the phone number the site deliberately omits. The CV repo's English generator now emits a third variant alongside Standard and Print — `LI_ZHUOFEI_Resume_Public_2026`, the standard layout with the phone segment stripped, rebuilt from the saved standard file so the print variant's rewritten link text cannot leak into it. That PDF is copied here as `cv.pdf` and linked as a fourth Contact row (Email, GitHub, LinkedIn, CV), reusing the existing `.contact-link` markup with a document icon; no CSS changed. `AGENTS.md` gained a `cv.pdf` row stating that only the `Public` variant may ever be copied here, with the `pdftotext` check to run before committing, and its reference count went from 15 to 16.
   Verification: the published PDF contains no `+852` / `+86` match, and its contact line reads `lizhuofei@connect.hku.hk | GitHub | LinkedIn | lizhuofei.com` against the standard variant's identical line with the phone prefix; one page, Letter, rendered and read in full. In the preview all six anchors resolve and `cv.pdf` returns `200 application/pdf`. All four Contact rows compute the same grid (`140px 435px` desktop, one 301px column at 375px) and the same dark-mode tokens (`rgb(87, 201, 166)` icon, `rgb(231, 233, 231)` value); no horizontal overflow at 375px. `git diff --check` passed.
