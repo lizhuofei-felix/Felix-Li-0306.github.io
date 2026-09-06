@@ -127,3 +127,8 @@ Maintain the published personal profile while preserving its current content acc
 - Removed the LIGHT Creative Camp phrase from AirHelper at the owner's request. Subtitle now reads `Team Leader · HKU CCAI9028 Course Project`, matching the updated CV.
 - Refreshed `cv.pdf` from the regenerated Public variant; verified no phone prefixes and exact byte equality with the CV repository's public PDF.
 - HTML parsing, internal anchors/local asset references, and `git diff --check` passed. Local browser preview was blocked by the browser URL policy; desktop/mobile and light/dark visual QA are not claimed. Publication authorized by the owner in the follow-up request; deployment verification follows the push.
+
+### 2026-09-06 CV alignment
+
+- Refreshed the public CV with consistent entry hierarchy: institution/project names align left, subtitles and repository links indent beneath them, bullet text uses hanging indentation, and dates align right.
+- Public PDF remains one Letter page, visually inspected, with unchanged text and no phone numbers. Website HTML is unchanged.
