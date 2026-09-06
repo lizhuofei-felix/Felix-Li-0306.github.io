@@ -121,3 +121,9 @@ Maintain the published personal profile while preserving its current content acc
 - 2026-07-14: Confirmed that `AGENTS.md` and `PROGRESS.md` should be version-controlled and remain outside `.gitignore`.
 - 2026-07-14: Removed the Finance minor reference from the HKU education entry.
 - 2026-07-14: Initialized `AGENTS.md` and `PROGRESS.md`, removed the approved unused `avatar.png`, and preserved the remaining root-level site structure without renames or file moves.
+
+### 2026-09-06 CCAI9028 subtitle
+
+- Removed the LIGHT Creative Camp phrase from AirHelper at the owner's request. Subtitle now reads `Team Leader · HKU CCAI9028 Course Project`, matching the updated CV.
+- Refreshed `cv.pdf` from the regenerated Public variant; verified no phone prefixes and exact byte equality with the CV repository's public PDF.
+- HTML parsing, internal anchors/local asset references, and `git diff --check` passed. Local browser preview was blocked by the browser URL policy; desktop/mobile and light/dark visual QA are not claimed. Publication authorized by the owner in the follow-up request; deployment verification follows the push.
