@@ -1,6 +1,6 @@
 # Project Progress
 
-Last updated: 2026-09-05
+Last updated: 2026-09-29
 Current phase: Maintenance
 Project status: Operational static site; project guidance initialized
 
@@ -56,6 +56,17 @@ Maintain the published personal profile while preserving its current content acc
 - `python3 -m http.server 8000` with local HTTP requests — passed; `/` returned `200 OK` and contained the expected page title and contact section.
 
 ## Recent Changes
+
+- 2026-09-29: Reinitialized the repository context for the current maintenance
+  session. Re-read `AGENTS.md`, `README.md`, and the existing handoff notes;
+  confirmed that the working tree starts clean on branch `work`; and verified
+  the root-level static-site structure without changing the published page.
+  The HTML parser/reference audit passed with all 16 references accounted for
+  (6 internal anchors, 2 local assets, and 8 external or `mailto:` links), no
+  missing local files, and no parse errors. A local HTTP preview returned 200
+  for `/`, `favicon.svg`, and `cv.pdf`. `git diff --check` passed. The requested
+  `pdftotext` privacy check could not run because Poppler is not installed in
+  this environment; a binary-string fallback found no `+852` or `+86` prefix.
 
 - 2026-09-05: Updated education to Minors: Computer Science and Finance, the GitHub profile to lizhuofei-felix, and project links to the verified renamed repositories air-helper and comp2113-text-game. Refreshed cv.pdf from the current Public English variant. GitHub API confirmed both canonical project URLs. HTML parsing and internal/local asset checks passed; public PDF is byte-identical to the CV repository public output, contains no phone prefixes, and is one-page Letter. Playwright desktop (1280px) and mobile (375px) screenshots in light/dark appearance inspected; changed text and links wrap normally. No CSS or layout changes. git diff --check passed.
 
