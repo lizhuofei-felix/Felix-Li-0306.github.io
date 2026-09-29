@@ -1,565 +1,592 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f7f8f8" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0c100f" media="(prefers-color-scheme: dark)" />
-  <meta name="description" content="LI ZHUOFEI: HKU Statistics undergraduate with interests in statistics and data science, looking for early research opportunities." />
+  <meta name="theme-color" content="#f1f5f9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <meta name="description" content="Statistics undergraduate at HKU with interests in AI/ML, agents, and quantitative research." />
   <meta name="author" content="LI ZHUOFEI" />
-  <meta property="og:title" content="LI ZHUOFEI" />
-  <meta property="og:description" content="HKU Statistics undergraduate with interests in statistics and data science, looking for early research opportunities." />
+  <meta property="og:title" content="LI ZHUOFEI (Felix) | Statistics Undergraduate at HKU" />
+  <meta property="og:description" content="Statistics undergraduate at HKU with interests in AI/ML, agents, and quantitative research." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lizhuofei.com/" />
   <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://lizhuofei.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..600&family=Inter:wght@400..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&amp;family=Inter:wght@400;500;600;650;700&amp;display=swap" rel="stylesheet" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <title>LI ZHUOFEI</title>
+  <title>LI ZHUOFEI (Felix) | Statistics Undergraduate at HKU</title>
   <style>
     :root {
-      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-serif: "EB Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-      --page: #eef0ef;
-      --surface: #ffffff;
-      --surface-muted: #eef0ee;
-      --text: #1a1d1c;
-      --muted: #545a57;
-      --subtle: #7d827e;
-      --line: #dde1dd;
-      --accent: #0f4d3f;
-      --accent-dark: #0a362d;
-      --shadow: 0 8px 20px rgba(15, 23, 20, 0.05);
+      color-scheme: light dark;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
+      --page: #f1f5f9;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #115e59;
+      --line: #d7e0eb;
+      --selection: #ccfbf1;
+      --selection-text: #134e4a;
+      --entry-hover: rgba(255, 255, 255, 0.82);
+      --entry-edge: rgba(255, 255, 255, 0.95);
+      --entry-shadow: rgba(15, 23, 42, 0.16);
+      --entry-shadow-near: rgba(15, 23, 42, 0.07);
+      --spotlight: rgba(59, 130, 246, 0.09);
+      --spotlight-falloff: rgba(59, 130, 246, 0.045);
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 48px; }
     body {
       margin: 0;
       background: var(--page);
-      color: var(--text);
+      color: var(--muted);
       font-family: var(--font-sans);
-      line-height: 1.6;
+      font-size: 16px;
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    ::selection { background: var(--selection); color: var(--selection-text); }
+    .spotlight { display: none; }
+    a { color: var(--text); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+    a:hover { color: var(--accent); }
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+      border-radius: 2px;
     }
-
-    a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .skip-link {
+      position: fixed;
+      z-index: 10;
+      top: 16px;
+      left: 16px;
+      padding: 10px 16px;
+      background: var(--page);
+      border: 1px solid var(--accent);
+      transform: translateY(-200%);
     }
-
-    .topbar {
+    .skip-link:focus { transform: translateY(0); }
+    .layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 96px;
+      width: min(1120px, calc(100% - 96px));
+      margin: 72px auto 64px;
+      align-items: start;
+    }
+    .identity {
       position: sticky;
-      top: 0;
-      z-index: 5;
-      border-bottom: 1px solid var(--line);
-      background: rgba(238, 240, 239, 0.9);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-    }
-
-    .topbar-inner {
-      width: min(780px, calc(100% - 40px));
-      min-height: 62px;
-      margin: 0 auto;
+      top: 72px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
+      flex-direction: column;
+      min-height: min(720px, calc(100svh - 144px));
     }
-
-    .brand {
-      flex: 0 0 auto;
-      color: var(--text);
-      font-family: var(--font-serif);
-      font-size: 1.08rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex: 1 1 auto;
-      min-width: 0;
-      gap: 20px;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .nav::-webkit-scrollbar {
-      display: none;
-    }
-
-    .nav a {
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .nav a:hover {
-      color: var(--accent);
-    }
-
-    .brand:focus-visible,
-    .nav a:focus-visible,
-    .contact-link:focus-visible {
-      outline: 2px solid rgba(15, 77, 63, 0.36);
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
-
-    .page {
-      width: min(780px, calc(100% - 40px));
-      margin: 56px auto 80px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .page > section {
-      padding: 40px 48px;
-      scroll-margin-top: 80px;
-    }
-
-    .page > section + section {
-      border-top: 1px solid var(--line);
-    }
-
     h1 {
-      margin: 0;
+      margin: 0 0 17px;
       color: var(--text);
       font-family: var(--font-serif);
-      font-size: clamp(2.3rem, 6.2vw, 3.7rem);
+      font-size: 46px;
       font-weight: 500;
-      line-height: 1;
       letter-spacing: 0.07em;
+      line-height: 1.12;
     }
-
-    .role {
-      margin: 12px 0 0;
+    h1 a { color: inherit; text-decoration: none; }
+    .preferred-name { margin: -7px 0 15px; color: var(--muted); font-size: 17px; font-weight: 500; letter-spacing: 0.02em; }
+    .identity-degree { margin: 0; color: var(--text); font-size: 17px; font-weight: 600; }
+    .identity-minor { margin: 2px 0 0; font-size: 14px; }
+    .role { margin: 22px 0 0; font-size: 15px; line-height: 1.7; max-width: 32ch; }
+    .nav { margin: 38px 0 42px; }
+    .nav ul { display: grid; gap: 3px; list-style: none; margin: 0; padding: 0; }
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      min-height: 36px;
+      width: fit-content;
       color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, max-content);
-      justify-content: space-between;
-      gap: 20px;
-      margin-top: 30px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-    }
-
-    .metric-label {
-      display: block;
-      color: var(--subtle);
-      font-size: 0.68rem;
+      text-decoration: none;
+      font-size: 11px;
       font-weight: 650;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
     }
-
-    .metric-value {
-      display: block;
-      margin-top: 5px;
-      color: var(--text);
-      font-size: 0.94rem;
-      font-weight: 620;
-    }
-
-    h2 {
-      margin: 0 0 20px;
-      color: var(--text);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .entry-list {
-      display: grid;
-      gap: 24px;
-    }
-
-    .entry + .entry {
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-    }
-
-    .entry-title {
-      margin: 0;
-      color: var(--text);
-      font-size: 1.02rem;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    .entry-subtitle {
-      margin: 3px 0 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-      font-weight: 600;
-    }
-
-    .entry-meta {
-      margin: 3px 0 0;
-      color: var(--subtle);
-      font-size: 0.88rem;
-    }
-
-    .entry-note {
-      margin: 8px 0 0;
-      color: var(--muted);
-    }
-
-    .bullet-list {
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .bullet-list li + li {
-      margin-top: 6px;
-    }
-
-    .skill-groups {
-      display: grid;
-      gap: 16px;
-    }
-
-    .skill-group {
-      display: grid;
-      grid-template-columns: 140px minmax(0, 1fr);
-      gap: 16px;
-      align-items: baseline;
-    }
-
-    .skill-group h3 {
-      margin: 0;
-      color: var(--subtle);
-      font-size: 0.82rem;
-      font-weight: 600;
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .skill {
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      padding: 5px 11px;
-      background: var(--surface-muted);
-      color: var(--text);
-      font-size: 0.85rem;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 4px;
-    }
-
-    .contact-link {
-      display: grid;
-      grid-template-columns: 140px minmax(0, 1fr);
-      align-items: center;
-      gap: 16px;
-      padding: 10px 0;
-      color: var(--text);
-    }
-
-    .contact-heading {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .contact-icon {
-      width: 18px;
-      height: 18px;
+    .nav a::before {
+      content: "";
       flex: 0 0 auto;
-      color: var(--accent);
+      width: 32px;
+      height: 1px;
+      background: var(--line);
     }
-
-    .contact-label {
-      color: var(--subtle);
-      font-size: 0.82rem;
-      min-width: 64px;
+    .nav a:hover, .nav a:focus-visible, .nav a[aria-current="location"] { color: var(--text); }
+    .nav a:hover::before, .nav a:focus-visible::before, .nav a[aria-current="location"]::before {
+      background: var(--text);
+      width: 64px;
     }
-
-    .contact-value {
+    .contacts { margin-top: auto; padding-top: 16px; }
+    .social-links { display: flex; gap: 8px; margin: 0 0 0 -10px; padding: 0; list-style: none; }
+    .social-link { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--muted); text-decoration: none; }
+    .social-link svg { display: block; width: 24px; height: 24px; }
+    .cv-mark { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; font-size: 17px; font-weight: 700; line-height: 1; letter-spacing: 0.01em; }
+    .social-link:hover, .social-link:focus-visible { color: var(--text); }
+    .content { min-width: 0; }
+    .content > section { scroll-margin-top: 48px; }
+    .content > section + section { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--line); }
+    h2 {
+      margin: 0 0 25px;
       color: var(--text);
-      font-weight: 600;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      line-height: 1.5;
+      text-transform: uppercase;
     }
+    p { margin: 0 0 14px; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text); font-weight: 600; }
+    .about-copy { max-width: 66ch; }
+    .availability { margin-top: 22px; padding-left: 17px; border-left: 2px solid var(--accent); font-size: 14px; }
+    .entry-list { display: grid; gap: 35px; }
+    .entry { position: relative; isolation: isolate; }
+    .entry-surface { position: relative; isolation: isolate; }
+    .entry-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 10px 22px; }
+    .entry-title { margin: 0; color: var(--text); font-size: 17px; font-weight: 600; line-height: 1.5; }
+    .entry-meta { flex: 0 0 auto; margin: 0; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+    .entry-subtitle { margin: 4px 0 0; color: var(--text); font-size: 14px; line-height: 1.6; }
+    .entry-note { margin-top: 10px; font-size: 14px; }
+    .coursework { margin-top: 12px; font-size: 13px; line-height: 1.8; }
+    .coursework span { color: var(--text); font-weight: 500; }
+    .entry-body { margin-top: 15px; font-size: 14px; line-height: 1.8; }
+    .entry-body ul { margin: 10px 0 0; padding-left: 18px; }
+    .entry-body li { padding-left: 2px; }
+    .entry-body li + li { margin-top: 7px; }
+    .entry-result { margin-top: 10px; color: var(--accent); font-size: 12px; font-weight: 600; }
+    .project-footer { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; margin-top: 16px; font-size: 12px; }
+    .project-footer p { margin: 0; }
+    .project-footer a { font-weight: 600; }
+    .link-arrow { display: inline-block; margin-left: 5px; }
+    a:hover .link-arrow, a:focus-visible .link-arrow { transform: translate(4px, -4px); }
+    .skills { margin: 0; font-size: 14px; }
+    .skill-group { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 20px; }
+    .skill-group + .skill-group { margin-top: 13px; }
+    .skills dt { color: var(--text); font-weight: 500; }
+    .skills dd { margin: 0; }
+    .footer { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px 20px; margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 11px; }
+    .footer p { margin: 0; }
+    .footer-meta p + p { margin-top: 2px; }
 
-    .contact-link:hover .contact-value {
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    @media (min-width: 961px) and (max-height: 760px) {
+      .layout { margin-top: 32px; }
+      .identity { top: 32px; min-height: 0; }
+      .nav { margin: 20px 0; }
+      .nav a { min-height: 28px; }
+      .contacts { margin-top: 0; }
     }
-
-    @media (max-width: 640px) {
-      .topbar-inner,
-      .page {
-        width: min(100% - 28px, 780px);
-      }
-
-      .nav {
-        justify-content: flex-start;
-        gap: 14px;
-        overflow-x: auto;
-        scrollbar-width: none;
-      }
-
-      .page > section {
-        padding: 30px 22px;
-      }
-
-      .metrics {
-        grid-template-columns: 1fr 1fr;
-        justify-content: stretch;
-        row-gap: 18px;
-      }
-
-      .skill-group {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .contact-link {
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-
-      .contact-value {
-        padding-left: 30px;
-      }
+    @media (min-width: 961px) and (max-height: 640px) {
+      .identity { position: static; min-height: 0; }
+      .contacts { margin-top: 0; }
     }
-
+    @media (max-width: 1100px) and (min-width: 961px) {
+      .layout { grid-template-columns: 290px minmax(0, 1fr); gap: 64px; width: calc(100% - 72px); }
+      h1 { font-size: 41px; }
+      .entry-heading { flex-direction: column; gap: 4px; }
+    }
+    @media (max-width: 960px) {
+      .layout { display: block; width: min(704px, calc(100% - 64px)); margin-top: 48px; }
+      .identity { position: static; min-height: 0; }
+      h1 { font-size: 48px; }
+      .role { max-width: 46ch; margin-top: 17px; }
+      .nav { margin: 28px 0 23px; }
+      .nav ul { display: flex; flex-wrap: wrap; gap: 3px 22px; }
+      .nav a { min-height: 40px; }
+      .nav a::before { display: none; }
+      .nav a[aria-current="location"] { text-decoration: underline; text-underline-offset: 7px; }
+      .contacts { padding: 0; }
+      .content { margin-top: 44px; padding-top: 32px; border-top: 1px solid var(--line); }
+      .content > section + section { margin-top: 42px; }
+    }
+    @media (max-width: 600px) {
+      .layout { width: calc(100% - 40px); margin: 36px auto 32px; }
+      h1 { font-size: clamp(34px, 10vw, 44px); }
+      .identity-degree { font-size: 16px; }
+      .role { font-size: 14px; }
+      .nav ul { gap: 0 18px; }
+      .nav a { font-size: 10px; min-height: 40px; }
+      .entry-heading { flex-direction: column; gap: 5px; }
+      .entry-meta { font-size: 13px; }
+      .entry-title { font-size: 16px; }
+      .entry-list { gap: 30px; }
+      .about-copy { font-size: 15px; }
+      .skill-group { grid-template-columns: 1fr; gap: 2px; }
+      .skill-group + .skill-group { margin-top: 16px; }
+      .footer { margin-top: 42px; }
+    }
     @media (prefers-color-scheme: dark) {
       :root {
-        --page: #101112;
-        --surface: #17181a;
-        --surface-muted: #1c1e1e;
-        --text: #e7e9e7;
-        --muted: #9a9e9b;
-        --subtle: #757975;
-        --line: #2a2c2b;
-        --accent: #57c9a6;
-        --accent-dark: #7bdcc0;
-        --shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        --page: #0f172a;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --accent: #5eead4;
+        --line: #233249;
+        --selection: #5eead4;
+        --selection-text: #134e4a;
+        --entry-hover: rgba(30, 41, 59, 0.55);
+        --entry-edge: rgba(148, 163, 184, 0.12);
+        --entry-shadow: rgba(2, 6, 23, 0.36);
+        --entry-shadow-near: rgba(2, 6, 23, 0.22);
+        --spotlight: rgba(29, 78, 216, 0.15);
+        --spotlight-falloff: rgba(29, 78, 216, 0.075);
       }
-
-      .topbar {
-        background: rgba(16, 17, 18, 0.88);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+      a { transition: color 150ms ease-out, text-decoration-color 150ms ease-out; }
+      .nav a::before { transition: width 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms ease-out; }
+      .link-arrow { transition: transform 150ms var(--ease-out); }
+      .entry { transition: opacity 200ms ease-out; }
+      .entry-surface { transition: transform 220ms var(--ease-out); }
+      .entry-surface::before { transition: background-color 220ms ease-out, box-shadow 220ms ease-out; }
+      .entry-title { transition: color 180ms ease-out; }
+      .social-link svg, .cv-mark { transition: transform 180ms var(--ease-out); }
+      .social-link:hover svg, .social-link:focus-visible svg,
+      .social-link:hover .cv-mark, .social-link:focus-visible .cv-mark { transform: translateY(-3px); }
+    }
+    @media (min-width: 961px) and (hover: hover) and (pointer: fine) {
+      .entry::before { content: ""; position: absolute; inset: -16px -24px; z-index: -1; }
+      .entry-surface::before {
+        content: "";
+        position: absolute;
+        inset: -16px -24px;
+        z-index: -1;
+        border-radius: 8px;
+        pointer-events: none;
       }
-
-      .brand:focus-visible,
-      .nav a:focus-visible,
-      .contact-link:focus-visible {
-        outline-color: rgba(87, 201, 166, 0.55);
+      .entry-list:hover > .entry, .entry-list:focus-within > .entry { opacity: 0.9; }
+      .entry-list > .entry:hover, .entry-list > .entry:focus-within { opacity: 1; }
+      .entry:hover .entry-surface::before, .entry:focus-within .entry-surface::before {
+        background: var(--entry-hover);
+        box-shadow: inset 0 1px 0 var(--entry-edge), 0 16px 32px -12px var(--entry-shadow), 0 4px 10px -4px var(--entry-shadow-near);
       }
+      #project .entry:hover .entry-title, #project .entry:focus-within .entry-title { color: var(--accent); }
+      #project .entry:hover .link-arrow, #project .entry:focus-within .link-arrow { transform: translate(4px, -4px); }
+      .project-footer a::after { content: ""; position: absolute; inset: -16px -24px; border-radius: 8px; }
+      .project-footer a:focus-visible { outline: none; }
+      .project-footer a:focus-visible::after { outline: 2px solid var(--accent); outline-offset: 3px; }
+    }
+    @media (min-width: 961px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      .entry:hover .entry-surface, .entry:focus-within .entry-surface { transform: translateY(-3px); }
+      .spotlight { display: block; position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity 300ms ease-out; }
+      .spotlight[data-active] { opacity: 1; }
+      .spotlight::before {
+        content: "";
+        position: absolute;
+        width: 800px;
+        height: 800px;
+        left: -400px;
+        top: -400px;
+        background: radial-gradient(circle 400px, var(--spotlight) 0%, var(--spotlight-falloff) 50%, transparent 100%);
+        transform: translate3d(var(--pointer-x, 0px), var(--pointer-y, 0px), 0);
+        transition: transform 140ms ease-out;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      a:hover .link-arrow, a:focus-visible .link-arrow,
+      #project .entry:hover .link-arrow, #project .entry:focus-within .link-arrow { transform: none; }
+    }
+    @media print {
+      :root { color-scheme: light; --page: #fff; --text: #17263c; --muted: #526174; --accent: #2d4f73; --line: #d8dfe7; }
+      body { font-size: 11pt; }
+      .layout { display: block; width: 100%; margin: 0; }
+      .identity { position: static; min-height: 0; margin-bottom: 28px; }
+      .nav, .skip-link, .footer, .spotlight { display: none; }
+      .contacts { margin-top: 12px; }
+      .content { border: 0; padding: 0; margin: 0; }
+      .entry { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#profile" aria-label="LI ZHUOFEI profile home">LI ZHUOFEI</a>
+  <div class="spotlight" aria-hidden="true"></div>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="layout">
+    <header class="identity" id="profile">
+      <div>
+        <h1><a href="#top">LI ZHUOFEI</a></h1>
+        <p class="preferred-name">Felix</p>
+        <p class="identity-degree">Statistics Undergraduate at HKU</p>
+        <p class="identity-minor">Minor in Computer Science</p>
+        <p class="role">Statistics undergraduate at HKU with interests in AI/ML, agents, and quantitative research.</p>
+      </div>
       <nav class="nav" aria-label="Profile sections">
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#project">Projects</a>
-        <a href="#skills">Capabilities</a>
-        <a href="#contact">Contact</a>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#project">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#activities">Activities &amp; Service</a></li>
+          <li><a href="#skills">Skills</a></li>
+        </ul>
       </nav>
-    </div>
-  </header>
-
-  <main class="page">
-    <section id="profile" aria-labelledby="profile-title">
-      <h1 id="profile-title">LI ZHUOFEI</h1>
-      <p class="role">HKU Statistics undergraduate with interests in statistics and data science, looking for early research opportunities.</p>
-      <div class="metrics" aria-label="Profile metrics">
-        <div>
-          <span class="metric-label">Institution</span>
-          <span class="metric-value">HKU</span>
-        </div>
-        <div>
-          <span class="metric-label">Degree</span>
-          <span class="metric-value">BStat</span>
-        </div>
-        <div>
-          <span class="metric-label">Professional Core</span>
-          <span class="metric-value">Statistics</span>
-        </div>
-        <div>
-          <span class="metric-label">Graduation</span>
-          <span class="metric-value">Jun 2029</span>
-        </div>
+      <div class="contacts" id="contact" role="group" aria-label="Contact and CV">
+        <ul class="social-links" aria-label="Social, contact, and CV links">
+          <li>
+            <a class="social-link" href="https://github.com/lizhuofei-felix" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)" title="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 .5A12 12 0 0 0 8.2 23.9c.6.1.82-.26.82-.58v-2.1c-3.34.72-4.04-1.43-4.04-1.43-.55-1.38-1.34-1.75-1.34-1.75-1.1-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.08 1.84 2.82 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.72c1.02 0 2.05.14 3.02.41 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.61-5.48 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z" /></svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-link" href="https://www.linkedin.com/in/lizhuofei/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.02H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z" /></svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-link" href="mailto:lizhuofei@connect.hku.hk" aria-label="Email LI Zhuofei at lizhuofei@connect.hku.hk" title="lizhuofei@connect.hku.hk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="2" /><path d="m3 6 9 7 9-7" /></svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-link" href="cv.pdf" target="_blank" rel="noopener noreferrer" aria-label="View CV (PDF, opens in a new tab)" title="View CV (PDF)">
+              <span class="cv-mark" aria-hidden="true">CV</span>
+            </a>
+          </li>
+        </ul>
       </div>
-    </section>
+    </header>
 
-    <section id="education" aria-labelledby="education-title">
-      <h2 id="education-title">Education</h2>
-      <div class="entry-list">
+    <main class="content" id="content" tabindex="-1">
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+        <div class="about-copy">
+          <p>I am a <strong>Statistics undergraduate at the University of Hong Kong</strong>, minoring in Computer Science. My interests include AI, data science, and quantitative research, supported by project experience in Python and C++.</p>
+          <p>My work so far includes a C++ terminal survival game and an AI-assisted air quality application. I have also gained exposure to early-stage technology investing through an internship at CAS Investment Management.</p>
+        </div>
+        <p class="availability">Seeking research opportunities and summer internships starting in <strong>June 2027</strong>.</p>
+      </section>
+
+      <section id="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <div class="entry-list">
+          <article class="entry">
+            <div class="entry-surface">
+              <div class="entry-heading">
+                <h3 class="entry-title">The University of Hong Kong</h3>
+                <p class="entry-meta">Sep 2025&ndash;Jun 2029</p>
+              </div>
+              <p class="entry-subtitle">Bachelor of Statistics &middot; Major in Statistics</p>
+              <p class="entry-note">Minor in Computer Science<br /><strong>CGPA: 3.85/4.30</strong></p>
+              <p class="coursework"><span>Selected coursework:</span> Linear Algebra (A+), Programming Technologies (A+), Multivariable Calculus (A), Statistics: Ideas and Concepts (A).</p>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="entry-surface">
+              <div class="entry-heading">
+                <h3 class="entry-title">Peking University</h3>
+                <p class="entry-meta">Jul 2026</p>
+              </div>
+              <p class="entry-subtitle">Summer School International (PKUSSI) &middot; Beijing, China</p>
+              <p class="entry-note">Completed coursework in International Organizations Law and the Chinese Economy, earning grades of 95/100 and 87/100.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="project" aria-labelledby="project-title">
+        <h2 id="project-title">Selected Projects</h2>
+        <div class="entry-list">
+          <article class="entry">
+            <div class="entry-surface">
+              <div class="entry-heading">
+                <h3 class="entry-title">Shelter Seconds</h3>
+                <p class="entry-meta">Jan&ndash;May 2026</p>
+              </div>
+              <p class="entry-subtitle">Team Leader &middot; HKU COMP2113 Course Project</p>
+              <p class="entry-result">Course grade: A+ &middot; Project score: 20/20</p>
+              <div class="entry-body">
+                <p>Led a 5-person team developing a text-based survival game for Linux terminals, with a working demo.</p>
+                <ul>
+                  <li>Developed the daily main loop, coordinating resource consumption, character status, random events, exploration, and end-condition checks.</li>
+                  <li>Designed header-based interfaces connecting 7 functional modules through shared game state, with a Makefile-based C++11 build.</li>
+                </ul>
+              </div>
+              <div class="project-footer">
+                <p>C++11 &middot; Standard library &middot; Makefile &middot; Linux</p>
+                <a href="https://github.com/lizhuofei-felix/comp2113-text-game" target="_blank" rel="noopener noreferrer" aria-label="View Shelter Seconds source on GitHub">View source<span class="link-arrow" aria-hidden="true">&nearr;</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="entry-surface">
+              <div class="entry-heading">
+                <h3 class="entry-title">AirHelper</h3>
+                <p class="entry-meta">Jan&ndash;May 2026</p>
+              </div>
+              <p class="entry-subtitle">Team Leader &middot; HKU CCAI9028 Course Project</p>
+              <p class="entry-result">Course grade: A</p>
+              <div class="entry-body">
+                <p>Led a 3-person team building an air quality web app for vulnerable groups, combining profile-based advice with large language model (LLM) chat.</p>
+                <ul>
+                  <li>Took primary responsibility for the Python/FastAPI prototype using coding agents.</li>
+                  <li>Implemented parallel retrieval of 8 official data feeds, with fallback data to keep demonstrations running.</li>
+                </ul>
+              </div>
+              <div class="project-footer">
+                <p>Python &middot; FastAPI &middot; LLMs &middot; Data APIs</p>
+                <a href="https://github.com/lizhuofei-felix/air-helper" target="_blank" rel="noopener noreferrer" aria-label="View AirHelper source on GitHub">View source<span class="link-arrow" aria-hidden="true">&nearr;</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" aria-labelledby="experience-title">
+        <h2 id="experience-title">Experience</h2>
         <article class="entry">
-          <h3 class="entry-title">The University of Hong Kong</h3>
-          <p class="entry-subtitle">Bachelor of Statistics</p>
-          <p class="entry-meta">Sep 2025&ndash;Present &middot; Expected graduation: Jun 2029</p>
-          <p class="entry-note">CGPA: 3.85/4.3</p>
-          <p class="entry-note">Professional Core: Statistics</p>
-          <p class="entry-note">Minors: Computer Science and Finance</p>
-          <p class="entry-note">Selected coursework: Linear Algebra (A+), Programming Technologies (A+), Multivariable Calculus (A), Statistics: Ideas and Concepts (A)</p>
+          <div class="entry-surface">
+            <div class="entry-heading">
+              <h3 class="entry-title">CAS Investment Management</h3>
+              <p class="entry-meta">Jun 2026</p>
+            </div>
+            <p class="entry-subtitle">Analyst Intern &middot; Beijing, China</p>
+            <p class="entry-note">An early-stage PE/VC firm specializing in frontier technology.</p>
+            <div class="entry-body">
+              <ul>
+                <li>Participated in review meetings for several projects and management interviews for a prospective Series B airborne synthetic-aperture radar (SAR) investment, supported by background research.</li>
+                <li>Attended post-investment follow-ups and shareholder meetings for perovskite photovoltaic and RSV vaccine companies, including discussions on follow-on financing.</li>
+              </ul>
+            </div>
+          </div>
         </article>
-        <article class="entry">
-          <h3 class="entry-title">Peking University Summer School International (PKUSSI)</h3>
-          <p class="entry-subtitle">Beijing, China</p>
-          <p class="entry-meta">Jul 6&ndash;31, 2026</p>
-          <p class="entry-note">Courses transferred as common core credit at HKU.</p>
-          <ul class="bullet-list">
-            <li>An Introduction to International Organizations Law (Peter Quayle, Chen Yifeng): governance structures, legal personality, and treaty interpretation of international institutions, examined through ICJ advisory opinions and a field visit to the International Labour Organization.</li>
-            <li>Introduction to Chinese Economy (Minquan Liu): China's economic growth and structural transformation since 1949, covering development models, urbanization, industrialization, and the state's role in the economy.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+      </section>
 
-    <section id="experience" aria-labelledby="experience-title">
-      <h2 id="experience-title">Experience</h2>
-      <div class="entry-list">
-        <article class="entry">
-          <h3 class="entry-title">CAS Investment Management</h3>
-          <p class="entry-subtitle">Analyst Intern</p>
-          <p class="entry-meta">Jun 2026</p>
-          <p class="entry-note"><em>An early-stage PE/VC firm specializing in frontier technology.</em></p>
-          <ul class="bullet-list">
-            <li>Participated in management interviews for a prospective Series B airborne synthetic-aperture radar (SAR) investment, supported by prior corporate background research.</li>
-            <li>Attended post-investment follow-ups and shareholder meetings across perovskite photovoltaic and RSV vaccine portfolio companies, gaining exposure to follow-on financing discussions.</li>
-            <li>Built a working understanding of the full PE/VC investment cycle (deal evaluation, post-investment management, shareholder governance, and pre-IPO preparation) through direct observation and self-study.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="project" aria-labelledby="project-title">
-      <h2 id="project-title">Projects</h2>
-      <div class="entry-list">
-        <article class="entry">
-          <h3 class="entry-title">AirHelper</h3>
-          <p class="entry-subtitle">Team Leader &middot; HKU CCAI9028 Course Project</p>
-          <p class="entry-meta">Mar 2026&ndash;May 2026 &middot; <a href="https://github.com/lizhuofei-felix/air-helper" target="_blank" rel="noopener noreferrer">github.com/lizhuofei-felix/air-helper</a></p>
-          <ul class="bullet-list">
-            <li>Led a small team building a FastAPI-based LLM air quality interpretation web app for elderly and vulnerable groups.</li>
-            <li>Applied the vibe-coding practice taught in CCAI9028 to structure the prototype as an agent workflow: data retrieval, LLM interpretation, and advice generation chained as discrete steps.</li>
-            <li>Combined APIs, Python, and HTML into a working data-processing and user-facing prototype.</li>
-          </ul>
-        </article>
-        <article class="entry">
-          <h3 class="entry-title">Shelter Seconds: Terminal Survival Game</h3>
-          <p class="entry-subtitle">Team Leader &middot; HKU COMP2113 Course Project</p>
-          <p class="entry-meta">Jan 2026&ndash;May 2026 &middot; <a href="https://github.com/lizhuofei-felix/comp2113-text-game" target="_blank" rel="noopener noreferrer">github.com/lizhuofei-felix/comp2113-text-game</a></p>
-          <ul class="bullet-list">
-            <li>Led a five-person team building <em>Shelter Seconds</em>, a text-based post-apocalyptic survival game that runs in the terminal.</li>
-            <li>Built a multi-file C++ codebase (standard library only) with a save/load system, random-event and exploration systems, and three difficulty modes.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills" aria-labelledby="skills-title">
-      <h2 id="skills-title">Capabilities</h2>
-      <div class="skill-groups">
-        <div class="skill-group">
-          <h3>Technical</h3>
-          <ul class="skill-list">
-            <li class="skill">Python (NumPy)</li>
-            <li class="skill">C++</li>
-            <li class="skill">Bash</li>
-          </ul>
+      <section id="activities" aria-labelledby="activities-title">
+        <h2 id="activities-title">Activities &amp; Service</h2>
+        <div class="entry-list">
+          <article class="entry">
+            <div class="entry-surface">
+              <div class="entry-heading">
+                <h3 class="entry-title">The University of Hong Kong</h3>
+                <p class="entry-meta">Sep 2026&ndash;Present</p>
+              </div>
+              <p class="entry-subtitle">Residential Student Adviser (RSA)</p>
+              <p class="entry-note">Provide peer support on academic and hall-life matters. Completed training in academic planning and psychological wellbeing support.</p>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="entry-surface">
+              <div class="entry-heading">
+                <h3 class="entry-title">IMC Challenge</h3>
+                <p class="entry-meta">Jun&ndash;Jul 2026</p>
+              </div>
+              <p class="entry-subtitle">Sponsored by Huawei</p>
+              <p class="entry-note">Explored 3D mesh simplification for mobile platforms, balancing geometric compression and visual fidelity.</p>
+            </div>
+          </article>
+          <article class="entry">
+            <div class="entry-surface">
+              <div class="entry-heading">
+                <h3 class="entry-title">Tencent LIGHT Creative Camp</h3>
+                <p class="entry-meta">Mar&ndash;May 2026</p>
+              </div>
+              <p class="entry-subtitle">Team Leader &middot; AirHelper</p>
+              <p class="entry-note">Led a 3-person team further developing AirHelper, exploring AI applications that make air quality information more accessible and actionable for vulnerable groups.</p>
+            </div>
+          </article>
         </div>
-        <div class="skill-group">
-          <h3>Analytical</h3>
-          <ul class="skill-list">
-            <li class="skill">Statistical inference</li>
-            <li class="skill">Regression</li>
-          </ul>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <dl class="skills">
+          <div class="skill-group"><dt>Programming</dt><dd>Python, C++, Bash</dd></div>
+          <div class="skill-group"><dt>Development</dt><dd>GitHub, uv, Anaconda, Makefile</dd></div>
+          <div class="skill-group"><dt>Environment</dt><dd>Docker, SSH</dd></div>
+          <div class="skill-group"><dt>AI tools</dt><dd>Claude Code, Codex, Skills, MCP</dd></div>
+          <div class="skill-group"><dt>Languages</dt><dd>Mandarin (Native), English (Professional)</dd></div>
+        </dl>
+      </section>
+      <footer class="footer">
+        <div class="footer-meta">
+          <p>LI Zhuofei &middot; Hong Kong</p>
+          <p>Last updated: <time datetime="2026-09-30">Sep 30, 2026</time></p>
         </div>
-        <div class="skill-group">
-          <h3>Languages</h3>
-          <ul class="skill-list">
-            <li class="skill">English (fluent)</li>
-            <li class="skill">Mandarin (native)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        <a href="#top">Back to top</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    (() => {
+      const links = Array.from(document.querySelectorAll('.nav a[href^="#"]'));
+      const sections = links.map(link => document.getElementById(link.hash.slice(1)));
+      if (!sections.length || sections.some(section => !section)) return;
 
-    <section id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <div class="contact-list">
-        <a class="contact-link" href="mailto:lizhuofei@connect.hku.hk">
-          <span class="contact-heading">
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-.5 3.6-7.5 5.63L4.5 7.6V6.9L12 12.53 19.5 6.9v.7Z" />
-            </svg>
-            <span class="contact-label">Email</span>
-          </span>
-          <span class="contact-value">lizhuofei@connect.hku.hk</span>
-        </a>
+      let currentId = '';
+      let framePending = false;
 
-        <a class="contact-link" href="https://github.com/lizhuofei-felix" target="_blank" rel="noopener noreferrer">
-          <span class="contact-heading">
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M12 .5A12 12 0 0 0 8.2 23.9c.6.1.82-.26.82-.58v-2.1c-3.34.72-4.04-1.43-4.04-1.43-.55-1.38-1.34-1.75-1.34-1.75-1.1-.75.08-.74.08-.74 1.2.09 1.84 1.24 1.84 1.24 1.08 1.84 2.82 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.72c1.02 0 2.05.14 3.02.41 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.61-5.48 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.58A12 12 0 0 0 12 .5Z" />
-            </svg>
-            <span class="contact-label">GitHub</span>
-          </span>
-          <span class="contact-value">github.com/lizhuofei-felix</span>
-        </a>
+      function updateCurrentSection() {
+        framePending = false;
+        // A stable reading line avoids competing highlights when two sections are visible.
+        const readingLine = Math.min(160, Math.max(96, window.innerHeight * 0.2));
+        let current = sections[0];
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top <= readingLine) current = section;
+        }
+        // The final section cannot always reach the reading line at the end of the page.
+        const root = document.documentElement;
+        if (window.scrollY > 0 && window.scrollY + window.innerHeight >= root.scrollHeight - 2) {
+          current = sections[sections.length - 1];
+        }
+        if (current.id === currentId) return;
+        currentId = current.id;
+        links.forEach((link, index) => {
+          if (sections[index] === current) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      }
 
-        <a class="contact-link" href="https://www.linkedin.com/in/zhuofei-li-97b025400/" target="_blank" rel="noopener noreferrer">
-          <span class="contact-heading">
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.02H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z" />
-            </svg>
-            <span class="contact-label">LinkedIn</span>
-          </span>
-          <span class="contact-value">linkedin.com/in/zhuofei-li-97b025400</span>
-        </a>
+      function scheduleUpdate() {
+        if (framePending) return;
+        framePending = true;
+        window.requestAnimationFrame(updateCurrentSection);
+      }
 
-        <a class="contact-link" href="cv.pdf" target="_blank" rel="noopener noreferrer">
-          <span class="contact-heading">
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Zm0 2.5L17.5 8H14V4.5ZM8 9.5h4V11H8V9.5Zm0 3.5h8v1.5H8V13Zm0 3.5h8V18H8v-1.5Z" />
-            </svg>
-            <span class="contact-label">CV</span>
-          </span>
-          <span class="contact-value">lizhuofei.com/cv.pdf</span>
-        </a>
-      </div>
-    </section>
-  </main>
+      // Native links retain keyboard focus, URL fragments, history, and no-script fallback.
+      window.addEventListener('scroll', scheduleUpdate, { passive: true });
+      window.addEventListener('resize', scheduleUpdate);
+      window.addEventListener('hashchange', scheduleUpdate);
+      window.addEventListener('pageshow', scheduleUpdate);
+      window.addEventListener('load', scheduleUpdate);
+      if (document.fonts) document.fonts.ready.then(scheduleUpdate);
+      updateCurrentSection();
+
+      const spotlight = document.querySelector('.spotlight');
+      const pointerMotion = window.matchMedia('(min-width: 961px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+      let pointerFramePending = false;
+      let pointerX = 0;
+      let pointerY = 0;
+      window.addEventListener('pointermove', event => {
+        if (!pointerMotion.matches || event.pointerType !== 'mouse') return;
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        spotlight.setAttribute('data-active', '');
+        if (pointerFramePending) return;
+        pointerFramePending = true;
+        window.requestAnimationFrame(() => {
+          pointerFramePending = false;
+          spotlight.style.setProperty('--pointer-x', `${pointerX}px`);
+          spotlight.style.setProperty('--pointer-y', `${pointerY}px`);
+        });
+      }, { passive: true });
+      function hideSpotlight() { spotlight.removeAttribute('data-active'); }
+      window.addEventListener('blur', hideSpotlight);
+      document.addEventListener('pointerleave', hideSpotlight);
+      pointerMotion.addEventListener('change', hideSpotlight);
+    })();
+  </script>
 </body>
 </html>

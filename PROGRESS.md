@@ -1,61 +1,128 @@
 # Project Progress
 
-Last updated: 2026-09-29
-Current phase: Maintenance
-Project status: Operational static site; project guidance initialized
+Last updated: 2026-09-30
+Current phase: Approved redesign and footer update date verified for branch delivery
+Project status: Approved redesign on `codex/profile-redesign`; the owner renewed commit/push authorization. GitHub Pages publishes `main`.
 
 ## Current Objective
 
-Maintain the published personal profile while preserving its current content accuracy, lightweight implementation, and document-like visual direction.
+Maintain the approved slate-blue/teal profile with content from the
+owner's supplied CV and LinkedIn. LinkedIn dates take precedence. The current
+implementation is available at `http://127.0.0.1:4173/` while the local preview
+server is running; it is not a verification of the live site.
 
 ## Completed
 
-- Confirmed the Git repository root and inspected the tracked project files.
-- Confirmed the site is a plain HTML/CSS GitHub Pages profile with a root-level custom-domain configuration.
-- Reviewed the README, page entry point, local preview configuration, asset references, Git history, and working-tree state.
-- Added concise project instructions in `AGENTS.md` based on the repository's actual structure and documented design requirements.
-- Confirmed that no directory moves or renames are needed for the current project.
-- Removed the unused and unreferenced `avatar.png` with owner approval.
+- Backed up the original site and Git history to `../lizhuofei.com-backups/20260930-025008-before-redesign-0bb868d/`. The archive, Git bundle, manifest, checksums, and restore instructions were verified by restoring all 10 original tracked files and commit `0bb868d`, including symlinks.
+- Fast-forwarded the clean checkout to `3b005f2` (a handoff-document update) before creating `codex/profile-redesign`.
+- Replaced the former topbar and single-column sheet with a sticky desktop identity column and continuous content. Mobile uses one column. Short desktop viewports disable sticky positioning so all contact links remain reachable.
+- Applied coordinated light/dark palettes and matching favicon colors. The latest pass uses reference slate-blue/teal colors, superseding the initial silver-gray/ink-blue palette. Kept the static single-file structure, native anchors, keyboard focus, and root-level domain and assets.
+- Updated education, project contributions and grades, CAS internship, activities/service, skills, and research availability from the supplied CV and LinkedIn. Kept Computer Science as the sole minor and preserved conservative CAS participation wording.
+- Aligned dates with LinkedIn, including AirHelper and Shelter Seconds at Jan–May 2026, HKU at Sep 2025–Jun 2029 (the expected graduation date), PKUSSI at Jul 2026, and RSA at Sep 2026–Present.
+- Refreshed `cv.pdf` from the private CV repository's Public output. It is a visually reviewed, phone-free, one-page Letter PDF. The Public generator and canonical output were updated in the separate private repository; unrelated CV variants were preserved.
+- Added live section highlighting, native smooth scrolling, 32–64px navigation rails, desktop entry hover/focus panels, sibling dimming, project-wide source links, moving arrows, and a frame-batched mouse glow. Reduced motion disables animation/glow; narrow layouts disable desktop hover treatments.
+- Desktop viewports 641–760px high use a compact sticky sidebar and 32px page top margin; the static fallback applies at 640px and below. The earlier separate CV row fit at 1280×641 after adding Felix; CV is now the fourth icon in the shared contact row.
+- Refined the glow in two passes: first smaller/softer, then increased to an 800px diameter with 0.09 light / 0.15 dark center alpha after the owner requested closer reference colors and stronger illumination. The glow sits behind the content. Hover surfaces retain a 3px lift, soft shadows, and stable outer hit buffers; sibling opacity is now 0.9 to preserve text contrast.
+- Replaced textual contact rows with an accessible four-item GitHub/LinkedIn/Email/CV row (24px icon areas, 44px targets). CV uses only the two letters, replacing its earlier separate text link. The identity now reads `LI ZHUOFEI`, `Felix`, and `Statistics Undergraduate at HKU`; page/OG titles include Felix.
+- Updated `README.md`, `AGENTS.md`, and `design-qa.md` to describe the approved design and actual verification.
 
 ## In Progress
 
-- Final browser-based visual comparison for the profile metrics and Capabilities/Contact column alignment.
+- No implementation or local QA item remains open for this revision.
 
 ## Next Steps
 
-1. Add a relevant-coursework line to the Education entry — the owner marked this pending on 2026-08-16. The archived research-intern CV already lists Programming Technologies (A+), Linear Algebra I (A+), Multivariable Calculus (A), and Statistics: Ideas and Concepts (A); the last of these is where the Capabilities chips `Statistical inference` and `Regression` come from, so the page currently states the skills without showing their source. Open question for the owner: whether to show grades.
-2. Keep profile content current as education, experience, and project details change.
-3. Preview future visual changes at desktop and mobile widths before publishing.
-4. Reassess automated HTML or link checks only if the site grows beyond its current single-page scope.
+1. Keep content consistent with the approved CV and LinkedIn date precedence.
+2. Recheck layout and public-PDF privacy whenever those files change.
+3. The owner authorized committing and pushing the redesign branch. GitHub Pages continues to publish `main`; production release requires integrating the branch and separately verifying the deployed HTML and public PDF.
 
 ## Key Decisions
 
 - Keep `index.html`, `CNAME`, and active assets at the repository root to preserve the simple GitHub Pages layout.
-- Keep `AGENTS.md` and `PROGRESS.md` in version control so project rules and cross-conversation handoff state remain available in every checkout; do not add them to `.gitignore`.
-- Do not introduce a framework, package manager, or build pipeline without a concrete project need and owner approval.
-- Treat the UI constraints in `README.md` as the source of truth for visual changes.
+- Keep `AGENTS.md` and `PROGRESS.md` tracked and preserve `CLAUDE.md` as a symlink.
+- The owner explicitly authorized matching Brittany Chiang's interactions. Keep the small inline JavaScript enhancement, with no framework, package manager, external script dependency, or build pipeline. Content and native navigation remain usable without JavaScript.
+- Treat `README.md` as the source of truth for design. The September 2026 redesign supersedes the old 780px sheet, emerald palette, metrics grid, and topbar requirements.
+- Keep the supplied phone-bearing CV and all private CV sources outside this public repository. Only the generated Public PDF belongs at `cv.pdf`.
 
 ## Known Issues and Blockers
 
-- The in-app browser preview cannot initialize because Browser plugin `26.707.71524` attempts to replace the runtime's locked `process` object before browser setup begins. Restart Codex Desktop, then update or reinstall the Browser plugin if the error persists; final browser-rendered comparison remains pending.
+- No blocking issue was found in the current local implementation. The historical browser-plugin blocker below no longer describes this session: browser QA completed successfully.
+- Reduced-motion and no-script fallback checks used isolated local fixtures, alongside an actual-script VM test. Native operating-system motion preferences were not changed.
+- Dark appearance was tested on the actual preview page. Light appearance was visually tested with an ignored fixture using the same markup/CSS and forced light colors, not by switching the operating system appearance. The actual light/dark media declarations were checked statically.
 - The page loads fonts from Google Fonts, so the exact typography depends on network access; system fallbacks are defined.
 
 ## Verification Status
 
-- HTML parser and internal/local reference check after the layout update — passed; all 12 references resolve.
-- `git diff --check` after the layout update — passed.
-- macOS rendered preview — passed for the profile metrics; the four content-width columns show equal distributed whitespace.
-- Browser-rendered desktop/mobile comparison for the Capabilities and Contact sections — blocked by a confirmed Browser plugin/runtime compatibility conflict before browser setup; static grid inspection confirms both sections use the same `140px + 16px` desktop column line.
-- `.gitignore` and `git check-ignore -v AGENTS.md PROGRESS.md` — passed; neither project document is ignored, so both remain eligible for version control.
-- `rg -n -i "minor in finance|finance minor|minor" index.html` — passed; no Finance minor reference remains.
-- Local preview on `127.0.0.1:8000` — passed; `/` returned `200 OK` and displays `Professional Core: Decision Analytics`.
-- `git status --short --branch` — passed before initialization; working tree was clean on `main` and aligned with `origin/main`.
-- `git diff --check` — passed before initialization.
-- `git diff --check` — passed after initialization.
-- HTML parser reference check — passed; all 12 internal/local links resolve with no missing anchors or local assets.
-- `python3 -m http.server 8000` with local HTTP requests — passed; `/` returned `200 OK` and contained the expected page title and contact section.
+- Latest CV icon pass: the public PDF link is now the fourth 44×44px target beside GitHub/LinkedIn/Email. It displays only `CV` in a 24px area, with a descriptive accessible name and PDF tooltip. Actual desktop and 375×812 mobile views passed, with four aligned targets and no mobile overflow. Keyboard focus shows a 2px outline and the icon uses the existing 180ms lift transition. Light and reduced-motion fixtures passed; reduced mode has no transform or transition. Main content, JavaScript, all 20 references and PDF hash are unchanged. Evidence: `.claude/qa/2026-09-30-cv-icon/`.
+
+- Latest palette pass: verified the live reference background `#0F172A`, heading `#E2E8F0`, body `#94A3B8`, teal `#5EEAD4`, and blue glow `rgba(29,78,216,.15)`. Dark preview matches these base values; its 400px visible glow radius is smaller than the reference's 480px transparent endpoint.
+- Actual 1280×800 desktop: glow active, behind content (z=0/1), 800px pseudo-element, 3px surface lift, teal project title, one active Projects item, and correct stretched-link hit. Actual 375×812 mobile: no overflow, no glow, exact undergraduate identity, and 44px contact targets. Console had no warnings/errors.
+- Light appearance and reduced motion verified with source-derived fixtures. Reduced fixture reported `scroll-behavior: auto`, hidden glow and zero surface transition duration. The OS preferences were not changed.
+- Composited color calculations include the glow center and 0.9 sibling opacity: secondary text is 4.99:1 in light and 5.34:1 in dark at that combined extreme. Normal body contrast is 6.92:1 / 6.96:1. These are numeric CSS color checks, not a complete accessibility certification.
+- Body markup, copy, identity, links and inline script are byte-identical to the pre-palette snapshot. Root structure and public CV are unchanged. Current evidence and the before snapshot are under `.claude/qa/2026-09-30-palette/`.
+
+The following bullets record earlier interaction/layout checks; their old glow and opacity values are superseded above.
+
+- Previous refinement: actual dark desktop hover and contact block inspected, light hover and reduced motion checked using isolated fixtures. Lift measured at -3px, glow width 680px, full-project link hit testing passed. The lower outer edge remained hovered and lifted across eight sampled states; the stationary outer buffer fixed the identified 3px boundary gap.
+- Actual 375×812 mobile layout and 320px/961px/1280px width checks passed with 44×44 contact targets. At 1280×641, initial CV visibility passed after reducing desktop top margin to 32px. Reduced-motion fixture had no lift, arrow movement, transitions, or glow.
+- Eight entry surfaces, three labelled decorative SVGs, 20 unchanged link destinations, unchanged main-section copy, unchanged enhancement script, and canonical Public PDF parity passed. Only approved name/identity and contact presentation changed. The earlier 15/15 script checks remain applicable because script bytes are unchanged.
+- Previous refinement evidence is under `.claude/qa/2026-09-30-refinement/`, including `before/`; earlier pass records below remain historical verification.
+
+- HTML structure, unique IDs, and reference audit passed: 20 references (9 internal, 2 local assets, 9 external/mailto). Every internal/local target resolves. No inline event handlers or em dashes in page copy; description metadata matches `.role`.
+- The initial redesign was visually reviewed at 1440×1000 desktop and 375×812 mobile in both palettes. The interaction pass reviewed actual dark desktop at 1280×720, light desktop at 1440×1000 using a fixture, and actual mobile at 375×812. Hover/focus feedback, moving arrows, pointer glow, and active navigation were inspected.
+- Current interaction-pass responsive checks passed at widths 320, 375, 960, 961, 1280, and 1440, with heights including 640, 641, 720, 812, 900, and 1000. No horizontal overflow; one active navigation item. Compact sticky sidebar at 1280×641 and 1280×720 remained fully reachable. The initial redesign also checked 600, 768, and 1024 widths.
+- All six navigation links reached their target sections, with current-section highlighting and sampled intermediate positions confirming native smooth scrolling. Manual reverse scrolling updates the highlight without rewriting the hash. Back/forward restores fragment locations. At 1440×1000, Activities remained active after reaching its target; Skills activated at the document bottom. Back to top returned to scroll position zero and the skip link focused `main#content` again after the interaction changes. Browser console inspection returned no errors/warnings.
+- Actual inline-script Node VM checks: 15/15 passed, covering scrollspy boundaries, event batching, resize/load/history events, pointer/reduced-motion gating, and missing-target fallback. These complement browser QA and are not a browser performance benchmark.
+- Local HTTP checks returned 200 for `/`, `/favicon.svg`, and `/cv.pdf`, with expected content types. Favicon XML parses; `CNAME` and the `CLAUDE.md` symlink are preserved.
+- Public PDF privacy, one-page Letter size, hyperlinks, approved Jan–May project dates, and exact parity with the canonical Public PDF passed. SHA-256: `ef03dc28ae061e6b05f889623e06251d47674f107ca1ee87b1b0c8b271d46ced`.
+- Independent static review found a contact-group labeling issue, corrected with `role="group"`; this semantic-only correction does not alter the visual layout.
+- `git diff --check` and final diff review passed. Initial screenshots remain under `.claude/qa/2026-09-30/`; current interaction screenshots, fixtures, and smoke-check evidence are under `.claude/qa/2026-09-30-motion/`. All are ignored; no test or build dependency was added.
 
 ## Recent Changes
+
+- 2026-09-30: Owner renewed the push request after the earlier automatic-review usage-limit failure. Included the latest footer date and maintenance notes, rechecked Public PDF parity, credential/private-file exclusions and diff whitespace, and refreshed the remote state before branch delivery. The earlier failed attempt created no commit.
+
+- 2026-09-30: Added a quiet 11px footer line, `Last updated: Sep 30, 2026`, with semantic `<time datetime="2026-09-30">`. It is a maintained content-update date. Actual dark desktop/mobile and a light fixture passed without overflow; script and links are unchanged. At that point, no commit/push retry had been attempted after the automatic approval review usage-limit failure; the footer follow-up was left in the working tree for the renewed push request recorded above.
+
+- 2026-09-30: Owner authorized `push`. Confirmed the public repository is `lizhuofei-felix/Felix-Li-0306.github.io`, the working branch is `codex/profile-redesign`, and Pages serves `main`. Prepared the seven scoped tracked changes for commit and push; private CV sources and QA artifacts remain ignored. Current source/reference and public-PDF checks passed.
+
+- 2026-09-30: Replaced the PKUSSI description with the owner's exact sentence: “Completed coursework in International Organizations Law and the Chinese Economy, earning grades of 95/100 and 87/100.” Verified rendered text and `git diff --check`; date and public PDF unchanged.
+
+- 2026-09-30: Removed the repeated `Expected graduation: Jun 2029` from the HKU entry at the owner's request, preserving the date column, minor, CGPA and public PDF. Verified the actual preview text and screenshot; `git diff --check` passed.
+
+- 2026-09-30: Replaced the separate View CV (PDF) line with a CV letter icon as the fourth contact-row item. Reused social-link sizing, colors, focus and motion; retained the original public PDF/new-tab behavior. Removed obsolete CV text-link styles and updated current design instructions. Local QA passed; uncommitted and unpublished.
+
+- 2026-09-30: Matched the reference slate-blue background, slate text and teal emphasis; increased blue glow center from 0.065 to 0.15 in dark mode, with an 800px diameter and linear soft falloff. Moved the glow behind text and reduced sibling dimming to 0.9 for readability. Updated light colors, browser theme colors, favicon and design instructions. Desktop/mobile and fixture-based light/reduced-motion checks passed. Body content and script unchanged; no commit, push or deployment.
+
+- 2026-09-30: Softened and reduced the pointer glow, added a 3px raised hover
+  surface with layered shadows, and replaced the left contact list with a
+  reference-style GitHub/LinkedIn/Email icon row and separate CV link. Added
+  stable outer hover buffers after identifying the moving link target's edge
+  gap. Applied the owner's exact identity wording `Statistics Undergraduate
+  at HKU`, added the preferred name `Felix`, and updated page/OG titles.
+  Reduced the top margin on short desktop viewports to keep all contact links
+  visible after adding the name line. Local UI and structural checks passed;
+  no commit, push, or deployment was performed.
+
+- 2026-09-30: The owner requested smooth interaction, then explicitly directed
+  matching Brittany Chiang's reference-site interactions. Added native smooth
+  anchors and a dependency-free inline scrollspy, expanding navigation rails,
+  transient entry hover/focus surfaces and sibling dimming, stretched project
+  links, animated source arrows, and a subtle pointer-following glow using the
+  existing palette. Native fragments and history are preserved. Added reduced
+  motion, narrow-screen, keyboard, and no-script fallbacks. The small-height
+  desktop sidebar is now sticky down to 641px. Saved the preceding local
+  revision under `.claude/qa/2026-09-30-motion/before/`. Website copy, dates,
+  public PDF, and domain were preserved. Changes remain local and uncommitted.
+
+- 2026-09-30: Implemented the owner-approved Brittany Chiang-inspired reading
+  structure with silver-gray/ink-blue colors, responsive identity sidebar,
+  native navigation, and coordinated dark mode. Updated content from
+  `LI_ZHUOFEI.pdf` and the live LinkedIn profile, with LinkedIn dates taking
+  precedence. Refreshed the phone-free Public CV through its private generator.
+  Full local verification is recorded above and in `design-qa.md`. Preserved
+  the pre-redesign backup and all historical entries below. Work is local and
+  uncommitted on `codex/profile-redesign`; no deployment has occurred.
 
 - 2026-09-29: Reinitialized the repository context for the current maintenance
   session. Re-read `AGENTS.md`, `README.md`, and the existing handoff notes;
