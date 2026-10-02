@@ -58,6 +58,7 @@
       --font-serif: "EB Garamond", "Iowan Old Style", Georgia, serif;
       --page: #f1f5f9;
       --text: #0f172a;
+      --subtext: #334155;
       --muted: #475569;
       --accent: #115e59;
       --line: #d7e0eb;
@@ -190,7 +191,7 @@
     .entry-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 10px 22px; }
     .entry-title { margin: 0; color: var(--text); font-size: 17px; font-weight: 600; line-height: 1.5; }
     .entry-meta { flex: 0 0 auto; margin: 0; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
-    .entry-subtitle { margin: 4px 0 0; color: var(--text); font-size: 14px; line-height: 1.6; }
+    .entry-subtitle { margin: 4px 0 0; color: var(--subtext); font-size: 14px; line-height: 1.6; }
     .entry-note { margin-top: 10px; font-size: 14px; }
     .coursework { margin-top: 12px; font-size: 13px; line-height: 1.8; }
     .coursework span { color: var(--text); font-weight: 500; }
@@ -198,7 +199,7 @@
     .entry-body ul { margin: 10px 0 0; padding-left: 18px; }
     .entry-body li { padding-left: 2px; }
     .entry-body li + li { margin-top: 7px; }
-    .entry-result { margin-top: 10px; color: var(--accent); font-size: 12px; font-weight: 600; }
+    .entry-result { margin-top: 10px; color: var(--accent); font-size: 12px; font-weight: 600; opacity: 0.85; }
     .project-footer { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; margin-top: 16px; font-size: 12px; }
     .project-footer p { margin: 0; }
     .project-footer a { font-weight: 600; }
@@ -263,9 +264,10 @@
       :root {
         --page: #0f172a;
         --text: #e2e8f0;
+        --subtext: #cbd5e1;
         --muted: #94a3b8;
         --accent: #5eead4;
-        --line: #233249;
+        --line: #2c3d58;
         --selection: #5eead4;
         --selection-text: #134e4a;
         --entry-hover: rgba(30, 41, 59, 0.55);
@@ -334,7 +336,7 @@
       #project .entry:hover .link-arrow, #project .entry:focus-within .link-arrow { transform: none; }
     }
     @media print {
-      :root { color-scheme: light; --page: #fff; --text: #17263c; --muted: #526174; --accent: #2d4f73; --line: #d8dfe7; }
+      :root { color-scheme: light; --page: #fff; --text: #17263c; --subtext: #2f3f55; --muted: #526174; --accent: #2d4f73; --line: #d8dfe7; }
       body { font-size: 11pt; }
       .layout { display: block; width: 100%; margin: 0; }
       .identity { position: static; min-height: 0; margin-bottom: 28px; }
@@ -412,18 +414,18 @@
                 <h3 class="entry-title">The University of Hong Kong</h3>
                 <p class="entry-meta">Sep 2025&ndash;Jun 2029</p>
               </div>
-              <p class="entry-subtitle">Bachelor of Statistics &middot; Major in Statistics</p>
-              <p class="entry-note">Minor in Computer Science<br /><strong>CGPA: 3.85/4.30</strong></p>
+              <p class="entry-subtitle">Bachelor of Statistics, Major in Statistics | Minor in Computer Science</p>
+              <p class="entry-note"><strong>CGPA: 3.85/4.30</strong></p>
               <p class="coursework"><span>Relevant coursework:</span> Probability and Statistics, Multivariable Calculus, Discrete Mathematics, Programming Technologies.</p>
             </div>
           </article>
           <article class="entry">
             <div class="entry-surface">
               <div class="entry-heading">
-                <h3 class="entry-title">Peking University</h3>
+                <h3 class="entry-title">Peking University Summer School International (PKUSSI)</h3>
                 <p class="entry-meta">Jul 2026</p>
               </div>
-              <p class="entry-subtitle">Summer School International (PKUSSI) &middot; Beijing, China</p>
+              <p class="entry-subtitle">Beijing, China</p>
               <p class="entry-note">Completed coursework in International Organizations Law and the Chinese Economy, earning grades of 95/100 and 87/100.</p>
             </div>
           </article>
@@ -436,10 +438,10 @@
           <article class="entry">
             <div class="entry-surface">
               <div class="entry-heading">
-                <h3 class="entry-title">Shelter Seconds</h3>
+                <h3 class="entry-title">Team Leader, Shelter Seconds</h3>
                 <p class="entry-meta">Jan&ndash;May 2026</p>
               </div>
-              <p class="entry-subtitle">Team Leader &middot; HKU COMP2113 Course Project</p>
+              <p class="entry-subtitle">HKU COMP2113 Course Project</p>
               <p class="entry-result">Course grade: A+ &middot; Project score: 20/20</p>
               <div class="entry-body">
                 <p>Led a 5-person team developing a text-based survival game for Linux terminals, with a working demo.</p>
@@ -457,10 +459,10 @@
           <article class="entry">
             <div class="entry-surface">
               <div class="entry-heading">
-                <h3 class="entry-title">AirHelper</h3>
+                <h3 class="entry-title">Team Leader, AirHelper</h3>
                 <p class="entry-meta">Jan&ndash;May 2026</p>
               </div>
-              <p class="entry-subtitle">Team Leader &middot; HKU CCAI9028 Course Project</p>
+              <p class="entry-subtitle">HKU CCAI9028 Course Project</p>
               <p class="entry-result">Course grade: A</p>
               <div class="entry-body">
                 <p>Led a 3-person team building an air quality web app for vulnerable groups, combining profile-based advice with large language model (LLM) chat.</p>
@@ -483,10 +485,10 @@
         <article class="entry">
           <div class="entry-surface">
             <div class="entry-heading">
-              <h3 class="entry-title">CAS Investment Management</h3>
+              <h3 class="entry-title">Analyst Intern, CAS Investment Management</h3>
               <p class="entry-meta">Jun 2026</p>
             </div>
-            <p class="entry-subtitle">Analyst Intern &middot; Beijing, China</p>
+            <p class="entry-subtitle">Beijing, China</p>
             <p class="entry-note">An early-stage PE/VC firm specializing in frontier technology.</p>
             <div class="entry-body">
               <ul>
@@ -504,30 +506,28 @@
           <article class="entry">
             <div class="entry-surface">
               <div class="entry-heading">
-                <h3 class="entry-title">The University of Hong Kong</h3>
+                <h3 class="entry-title">Residential Student Adviser (RSA), The University of Hong Kong</h3>
                 <p class="entry-meta">Sep 2026&ndash;Present</p>
               </div>
-              <p class="entry-subtitle">Residential Student Adviser (RSA)</p>
               <p class="entry-note">Provide peer support and guidance on academic and hall-life matters to help residential students navigate university life. Trained in academic advising and psychological wellbeing support.</p>
             </div>
           </article>
           <article class="entry">
             <div class="entry-surface">
               <div class="entry-heading">
-                <h3 class="entry-title">IMC Challenge</h3>
+                <h3 class="entry-title">Participant, IMC Challenge sponsored by Huawei</h3>
                 <p class="entry-meta">Jun&ndash;Jul 2026</p>
               </div>
-              <p class="entry-subtitle">Participant &middot; Sponsored by Huawei</p>
               <p class="entry-note">Explored 3D mesh simplification for mobile platforms, balancing geometric compression and visual fidelity.</p>
             </div>
           </article>
           <article class="entry">
             <div class="entry-surface">
               <div class="entry-heading">
-                <h3 class="entry-title">Tencent LIGHT Creative Camp</h3>
+                <h3 class="entry-title">Team Leader, Tencent LIGHT Creative Camp</h3>
                 <p class="entry-meta">Mar&ndash;May 2026</p>
               </div>
-              <p class="entry-subtitle">Team Leader &middot; AirHelper</p>
+              <p class="entry-subtitle">Project: AirHelper</p>
               <p class="entry-note">Led a 3-person team further developing AirHelper, exploring AI applications that make air quality information more accessible and actionable for vulnerable groups.</p>
             </div>
           </article>

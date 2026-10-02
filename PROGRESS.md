@@ -4,6 +4,16 @@ Last updated: 2026-10-02
 Current phase: Synced with the 2026-10-02 CV; frontend polish done locally, not committed
 Project status: Approved redesign on `codex/profile-redesign`; the owner renewed commit/push authorization. GitHub Pages publishes `main`.
 
+## 2026-10-02 entry headings aligned with the CV
+
+- At the owner's request, entry titles now use the Public CV's `Role, Organisation` one-line form: `Team Leader, Shelter Seconds` / `Team Leader, AirHelper` (subtitles keep the course project), `Analyst Intern, CAS Investment Management` (subtitle `Beijing, China`), `Residential Student Adviser (RSA), The University of Hong Kong` and `Participant, IMC Challenge sponsored by Huawei` (no subtitle), `Team Leader, Tencent LIGHT Creative Camp` (subtitle `Project: AirHelper`). Education follows the CV too: `Peking University Summer School International (PKUSSI)` as the title, and the HKU subtitle `Bachelor of Statistics, Major in Statistics | Minor in Computer Science` (the separate minor line was folded in). Wording only; no claims changed. `AGENTS.md` entry-shape rule rewritten.
+- Verified in the preview: all titles one line at 1280px and 1000px (dates stack at the narrower desktop), two lines at most at 375px; no horizontal overflow at any of the three widths.
+
+## 2026-10-02 dark-mode color refinement
+
+- At the owner's request, after a dark-mode review: dark divider `#233249` to `#2C3D58` (contrast with page 1.38 to 1.63; dividers and inactive nav rails were nearly invisible, 1.25 under the glow/hover panel). New `--subtext` token (light `#334155`, dark `#CBD5E1`, print `#2F3F55`) for `.entry-subtitle`, which previously shared `--text` with the title. `.entry-result` at 0.85 opacity so it no longer competes with the teal hovered project title. `AGENTS.md` and `README.md` palette tables updated.
+- Verified in the preview: computed colors match the tokens; desktop 1280x800 dark and light with project hover; 375px mobile dark with no horizontal overflow; no console errors. Not rerun: the full interaction suite (no script or layout change).
+
 ## 2026-10-02 CV sync and frontend polish
 
 - Synced content with the owner's 2026-10-02 CV: coursework now Probability and Statistics, Multivariable Calculus, Discrete Mathematics, Programming Technologies (no grades); Skills drop uv, Anaconda, Docker, SSH (the owner removed them from the CV); RSA wording and IMC `Participant` role follow the CV. Footer date set to Oct 2, 2026. Site-only detail not contradicted by the CV (project grades/scores, PKUSSI grades, Tencent LIGHT entry, AirHelper specifics) was left in place.

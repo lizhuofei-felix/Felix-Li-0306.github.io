@@ -111,10 +111,14 @@ claim stronger than the approved sources still needs the owner's authorization.
 - Colors are CSS custom properties on `:root`, **redefined in a
   `@media (prefers-color-scheme: dark)` block**.
   Any color token change must be applied to *both* palettes, or dark mode breaks.
-- Light palette: page `#F1F5F9`, text `#0F172A`, muted `#475569`, accent
-  `#115E59`, divider `#D7E0EB`.
-- Dark palette: page `#0F172A`, text `#E2E8F0`, muted `#94A3B8`, accent
-  `#5EEAD4`, divider `#233249`.
+- Light palette: page `#F1F5F9`, text `#0F172A`, subtext `#334155`, muted
+  `#475569`, accent `#115E59`, divider `#D7E0EB`.
+- Dark palette: page `#0F172A`, text `#E2E8F0`, subtext `#CBD5E1`, muted
+  `#94A3B8`, accent `#5EEAD4`, divider `#2C3D58`.
+- `--subtext` is the middle text tier, used for `.entry-subtitle` so the
+  title/role pair does not merge in dark mode. The print block defines it too.
+- `.entry-result` keeps the teal accent at 0.85 opacity, so a hovered project
+  title stays the stronger teal element.
 - Maintain matching light/dark tokens for entry-hover backgrounds, subtle edges,
   both shadow layers, selection colors, and the blue pointer glow with its falloff.
 - Ordinary links use the main text color by default and teal on hover. Headings,
@@ -190,9 +194,14 @@ claim stronger than the approved sources still needs the owner's authorization.
   `Statistics Undergraduate at HKU`. Keep both the page title and `og:title` as
   `LI Zhuofei (Felix) | Statistics Undergraduate at HKU`; preserve the preferred
   name and undergraduate qualification in these identity labels.
-- Entry shape: `.entry-title` = the organisation, institution, or project;
-  `.entry-subtitle` = the role, degree, or location; `.entry-meta` = the date.
-  Every section follows this, so the first line is always the *what*, not the *who*.
+- Entry shape follows the Public CV headings (owner's request, 2026-10-02).
+  Projects, Experience, and Activities: `.entry-title` = `Role, Organisation`
+  on one line, using the CV's wording (e.g. `Team Leader, Shelter Seconds`,
+  `Participant, IMC Challenge sponsored by Huawei`). Education keeps the
+  institution as the title, as the CV does. `.entry-subtitle` holds the
+  remaining context (degree, course project, location) and is omitted when
+  there is none; `.entry-meta` = the date. An entry absent from the CV (Tencent
+  LIGHT) uses the same `Role, Organisation` form.
 - The supplied CV and LinkedIn are content sources. The owner explicitly chose
   **LinkedIn dates where the sources differ**. The current approved dates are:
   HKU `Sep 2025&ndash;Jun 2029` (expected graduation); PKUSSI `Jul 2026`;
