@@ -17,7 +17,10 @@ remain usable without JavaScript.
 | --- | --- |
 | `index.html` | The entire site: markup + inline `<style>` and enhancement `<script>`. Must stay at repo root. |
 | `favicon.svg` | Active browser icon. Referenced from `index.html`. |
-| `cv.pdf` | Published CV, linked from the identity column's contact block. **It must always be the `Public` variant built by the CV repo** (`output/pdf/LI_ZHUOFEI_Resume_Public_2026.pdf`), with the phone number stripped. Never copy the phone-bearing source attachment, Standard, or Print deliverable here. Refresh it whenever the approved CV content changes, and re-check extracted text for phone numbers before committing. |
+| `apple-touch-icon.png` | 180px icon for iOS, drawn from the favicon geometry. |
+| `og-image.png` | 1200x630 share card referenced by `og:image` (name, degree, domain). Regenerate it if the name or degree line changes. |
+| `fonts/` | Self-hosted latin-subset `woff2` files for Inter and EB Garamond, loaded by `@font-face` in `index.html`. No external font requests. |
+| `cv.pdf` | Published CV, linked from the identity column's contact block. **It must always be the `Public` variant built by the CV repo** (`variants/public/pdf/LI_ZHUOFEI_Resume_Public_2026.pdf`; `output/pdf/` now holds only the private Print base), with the phone number stripped. Never copy the phone-bearing source attachment, Standard, or Print deliverable here. Refresh it whenever the approved CV content changes, and re-check extracted text for phone numbers before committing. |
 | `CNAME` | Custom domain (`lizhuofei.com`). Must stay at repo root — deleting it breaks the domain. A Pages site can hold exactly one custom domain; the former `me.byfelix.xyz` now redirects here. |
 | `CV/` | **Symlink to `../CV`**, a *separate private* repo (`Felix-Li-0306/CV`) holding the résumé sources and generated PDF/DOCX. Git-ignored via `/CV` — **never commit it or its contents**. This repo is public and GitHub Pages serves everything tracked here, and the CV files carry a phone number (the Chinese ones an address) that the site does not publish. |
 | `README.md` | **Authoritative design constraints.** Read before any UI change. |
@@ -84,7 +87,7 @@ faint-glow settings. The old blanket no-JavaScript, no-gradient, and
 no-hover-movement rules remain superseded within this interaction scope.
 
 - Serif (`EB Garamond`) is only for `h1`. Everything else is `Inter`.
-  Keep the name uppercase with positive tracking.
+  Keep the name as `LI Zhuofei` (mixed case) with slight positive tracking.
 - One content accent color (`--accent`, teal). The separately authorized pointer
   glow uses a translucent blue radial gradient behind content. Do not introduce
   other content accents or decorative gradients.
@@ -182,10 +185,10 @@ claim stronger than the approved sources still needs the owner's authorization.
   changes, synchronize its `<time datetime="YYYY-MM-DD">` value and visible date
   to the actual website update date; do not use the visit date or
   `document.lastModified` to imply an update.
-- Keep `LI ZHUOFEI` in `h1` and `Felix` in a separate `.preferred-name` line
+- Keep `LI Zhuofei` in `h1` and `Felix` in a separate `.preferred-name` line
   beneath it, using Inter. The visible `.identity-degree` text is
   `Statistics Undergraduate at HKU`. Keep both the page title and `og:title` as
-  `LI ZHUOFEI (Felix) | Statistics Undergraduate at HKU`; preserve the preferred
+  `LI Zhuofei (Felix) | Statistics Undergraduate at HKU`; preserve the preferred
   name and undergraduate qualification in these identity labels.
 - Entry shape: `.entry-title` = the organisation, institution, or project;
   `.entry-subtitle` = the role, degree, or location; `.entry-meta` = the date.

@@ -1,6 +1,6 @@
 # Design and Interaction QA
 
-Reviewed: 2026-09-30. Branch: `codex/profile-redesign`.
+Reviewed: 2026-10-02 (CV sync, name casing, self-hosted fonts; see `PROGRESS.md` for the checks actually run and those not run). Earlier review: 2026-09-30. Branch: `codex/profile-redesign`.
 Result: local verification passed; owner authorized committing and pushing the redesign branch. Production Pages source remains `main`.
 
 Latest content cleanup: the PKUSSI description now uses the owner's exact coursework sentence with grades of 95/100 and 87/100, verified in the rendered preview (`.claude/qa/2026-09-30-cv-icon/summer-school-grades.jpg`). Removed the repeated HKU expected-graduation note at the owner's request. Actual preview at `/#education` confirms the minor and CGPA remain, with `Sep 2025–Jun 2029` only in the date column. Screenshot: `.claude/qa/2026-09-30-cv-icon/education-note-removed.jpg`. No style, script or PDF change.

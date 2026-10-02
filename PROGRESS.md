@@ -1,8 +1,18 @@
 # Project Progress
 
-Last updated: 2026-09-30
-Current phase: Approved redesign and footer update date verified for branch delivery
+Last updated: 2026-10-02
+Current phase: Synced with the 2026-10-02 CV; frontend polish done locally, not committed
 Project status: Approved redesign on `codex/profile-redesign`; the owner renewed commit/push authorization. GitHub Pages publishes `main`.
+
+## 2026-10-02 CV sync and frontend polish
+
+- Synced content with the owner's 2026-10-02 CV: coursework now Probability and Statistics, Multivariable Calculus, Discrete Mathematics, Programming Technologies (no grades); Skills drop uv, Anaconda, Docker, SSH (the owner removed them from the CV); RSA wording and IMC `Participant` role follow the CV. Footer date set to Oct 2, 2026. Site-only detail not contradicted by the CV (project grades/scores, PKUSSI grades, Tencent LIGHT entry, AirHelper specifics) was left in place.
+- `cv.pdf` was the old Public build (SHA-256 `ef03dc28...`), not the current one. Replaced with the private repo's `variants/public/pdf/LI_ZHUOFEI_Resume_Public_2026.pdf` (SHA-256 `4e10d0dd...`, byte-identical). One Letter page, visually checked; no `+852`/`+86`/`6943` in extracted text or raw strings. The CV repo moved the Public output from `output/pdf/` to `variants/public/pdf/`; `AGENTS.md` and `README.md` now point there. That CV revision is local-only and uncommitted in the private repo.
+- Name changed from `LI ZHUOFEI` to `LI Zhuofei` at the owner's request (h1, title, og:title, author, share image); tracking reduced to 0.02em. Docs updated.
+- Fonts self-hosted: `fonts/inter-latin-var.woff2` (48KB) and `fonts/eb-garamond-500-latin.woff2` (25KB), latin subset from Google Fonts (OFL), replacing the render-blocking Google Fonts stylesheet and two preconnects. Preloaded. The decorative arrow glyph still uses a system fallback, as before.
+- Added `og-image.png` (1200x630), `og:image*`, `og:site_name`, `twitter:card=summary_large_image`, `apple-touch-icon.png` (180px) and Person JSON-LD.
+- Scrollspy reading line minimum raised 96 to 120px (anchored sections land at 96px). Mobile nav text 10 to 11px. Glow is positioned before it fades in (`data-snap`); hide-on-leave uses `documentElement` `mouseleave`.
+- Verified in the preview: both fonts load from `/fonts/` with 200; no console messages; every nav anchor lands at 96px and highlights its own section (Skills via the bottom fallback); no horizontal overflow at 375px and 1280px; four 44x44px contact targets; 9 internal anchors, 5 local assets all resolve; HTML balanced; JSON-LD parses; `git diff --check` clean. Not done: 960/961px and short-height transitions, forced dark/reduced-motion/no-JS rechecks, real mouse hover. The pane reported `document.hidden`, so rAF-dependent glow timing was only checked by synthetic events.
 
 ## Current Objective
 
@@ -49,7 +59,7 @@ server is running; it is not a verification of the live site.
 - No blocking issue was found in the current local implementation. The historical browser-plugin blocker below no longer describes this session: browser QA completed successfully.
 - Reduced-motion and no-script fallback checks used isolated local fixtures, alongside an actual-script VM test. Native operating-system motion preferences were not changed.
 - Dark appearance was tested on the actual preview page. Light appearance was visually tested with an ignored fixture using the same markup/CSS and forced light colors, not by switching the operating system appearance. The actual light/dark media declarations were checked statically.
-- The page loads fonts from Google Fonts, so the exact typography depends on network access; system fallbacks are defined.
+- Fonts are self-hosted from `fonts/` (since 2026-10-02); system fallbacks are still defined.
 
 ## Verification Status
 

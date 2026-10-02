@@ -57,7 +57,7 @@ This page should read as a **carefully typeset personal document**. Formality co
 
 **Typography**
 
-- Serif (`EB Garamond`) is reserved **only** for the name (`h1`), set in uppercase with positive letter spacing. All other text uses `Inter`.
+- Serif (`EB Garamond`) is reserved **only** for the name (`h1`), set in mixed case (`LI Zhuofei`) with slight positive letter spacing. All other text uses `Inter`.
 - Introductory body copy is approximately 16px, with entry descriptions at 14px and generous line height. Dates use 13px. Titles, roles, dates, and descriptions have consistent visual hierarchy.
 - Skills use compact categorized text. Keep technology descriptions concise and avoid decorative pill collections.
 - No numbered section kickers ("01 / 02 / 03...") or per-entry icon badges.
@@ -99,7 +99,7 @@ Interaction verification includes manual scrolling in both directions, all navig
 - The subdued footer `Last updated` line records the actual website update date as static text. When content or interface changes, update both its `<time datetime="YYYY-MM-DD">` value and visible date together; never substitute the visitor's current date or `document.lastModified`.
 - Page copy uses HTML entities such as `&ndash;` and contains no em dashes.
 - The bio line under the name (`.role`) and the `<meta name="description">` / `og:description` should stay in sync with each other.
-- Keep `LI ZHUOFEI` as the main name, with the preferred name `Felix` on a separate sans-serif line below it. The visible identity line is `Statistics Undergraduate at HKU`. The page title and `og:title` are `LI ZHUOFEI (Felix) | Statistics Undergraduate at HKU`, preserving the owner's preferred name and explicit undergraduate status.
-- Publish only the private CV repository's `output/pdf/LI_ZHUOFEI_Resume_Public_2026.pdf` as `cv.pdf`. Never copy the phone-bearing attachment, Standard, or Print variant directly into this repository.
+- Keep `LI Zhuofei` as the main name, with the preferred name `Felix` on a separate sans-serif line below it. The visible identity line is `Statistics Undergraduate at HKU`. The page title and `og:title` are `LI Zhuofei (Felix) | Statistics Undergraduate at HKU`, preserving the owner's preferred name and explicit undergraduate status.
+- Publish only the private CV repository's `variants/public/pdf/LI_ZHUOFEI_Resume_Public_2026.pdf` as `cv.pdf`. Never copy the phone-bearing attachment, Standard, or Print variant directly into this repository.
 
 The approved redesign and reference-site interactions supersede the old layout, palette, and interaction prohibitions only within the scope above. They do not authorize frameworks, external JavaScript dependencies, unrelated effects, or stronger factual claims.
