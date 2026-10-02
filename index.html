@@ -6,19 +6,52 @@
   <meta name="theme-color" content="#f1f5f9" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
   <meta name="description" content="Statistics undergraduate at HKU with interests in AI/ML, agents, and quantitative research." />
-  <meta name="author" content="LI ZHUOFEI" />
-  <meta property="og:title" content="LI ZHUOFEI (Felix) | Statistics Undergraduate at HKU" />
+  <meta name="author" content="LI Zhuofei" />
+  <meta property="og:title" content="LI Zhuofei (Felix) | Statistics Undergraduate at HKU" />
   <meta property="og:description" content="Statistics undergraduate at HKU with interests in AI/ML, agents, and quantitative research." />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LI Zhuofei" />
   <meta property="og:url" content="https://lizhuofei.com/" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://lizhuofei.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="LI Zhuofei (Felix), Statistics Undergraduate at HKU" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://lizhuofei.com/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&amp;family=Inter:wght@400;500;600;650;700&amp;display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/eb-garamond-500-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <title>LI ZHUOFEI (Felix) | Statistics Undergraduate at HKU</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>LI Zhuofei (Felix) | Statistics Undergraduate at HKU</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "LI Zhuofei",
+    "alternateName": "Felix",
+    "url": "https://lizhuofei.com/",
+    "description": "Statistics undergraduate at HKU with interests in AI/ML, agents, and quantitative research.",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "The University of Hong Kong" },
+    "sameAs": ["https://github.com/lizhuofei-felix", "https://www.linkedin.com/in/lizhuofei/"]
+  }
+  </script>
   <style>
+    @font-face {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url("fonts/inter-latin-var.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "EB Garamond";
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("fonts/eb-garamond-500-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
     :root {
       color-scheme: light dark;
       --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -93,7 +126,7 @@
       font-family: var(--font-serif);
       font-size: 46px;
       font-weight: 500;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.02em;
       line-height: 1.12;
     }
     h1 a { color: inherit; text-decoration: none; }
@@ -216,7 +249,7 @@
       .identity-degree { font-size: 16px; }
       .role { font-size: 14px; }
       .nav ul { gap: 0 18px; }
-      .nav a { font-size: 10px; min-height: 40px; }
+      .nav a { font-size: 11px; min-height: 40px; }
       .entry-heading { flex-direction: column; gap: 5px; }
       .entry-meta { font-size: 13px; }
       .entry-title { font-size: 16px; }
@@ -282,6 +315,7 @@
       .entry:hover .entry-surface, .entry:focus-within .entry-surface { transform: translateY(-3px); }
       .spotlight { display: block; position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; opacity: 0; transition: opacity 300ms ease-out; }
       .spotlight[data-active] { opacity: 1; }
+      .spotlight[data-snap]::before { transition: none; }
       .spotlight::before {
         content: "";
         position: absolute;
@@ -317,7 +351,7 @@
   <div class="layout">
     <header class="identity" id="profile">
       <div>
-        <h1><a href="#top">LI ZHUOFEI</a></h1>
+        <h1><a href="#top">LI Zhuofei</a></h1>
         <p class="preferred-name">Felix</p>
         <p class="identity-degree">Statistics Undergraduate at HKU</p>
         <p class="identity-minor">Minor in Computer Science</p>
@@ -380,7 +414,7 @@
               </div>
               <p class="entry-subtitle">Bachelor of Statistics &middot; Major in Statistics</p>
               <p class="entry-note">Minor in Computer Science<br /><strong>CGPA: 3.85/4.30</strong></p>
-              <p class="coursework"><span>Selected coursework:</span> Linear Algebra (A+), Programming Technologies (A+), Multivariable Calculus (A), Statistics: Ideas and Concepts (A).</p>
+              <p class="coursework"><span>Relevant coursework:</span> Probability and Statistics, Multivariable Calculus, Discrete Mathematics, Programming Technologies.</p>
             </div>
           </article>
           <article class="entry">
@@ -474,7 +508,7 @@
                 <p class="entry-meta">Sep 2026&ndash;Present</p>
               </div>
               <p class="entry-subtitle">Residential Student Adviser (RSA)</p>
-              <p class="entry-note">Provide peer support on academic and hall-life matters. Completed training in academic planning and psychological wellbeing support.</p>
+              <p class="entry-note">Provide peer support and guidance on academic and hall-life matters to help residential students navigate university life. Trained in academic advising and psychological wellbeing support.</p>
             </div>
           </article>
           <article class="entry">
@@ -483,7 +517,7 @@
                 <h3 class="entry-title">IMC Challenge</h3>
                 <p class="entry-meta">Jun&ndash;Jul 2026</p>
               </div>
-              <p class="entry-subtitle">Sponsored by Huawei</p>
+              <p class="entry-subtitle">Participant &middot; Sponsored by Huawei</p>
               <p class="entry-note">Explored 3D mesh simplification for mobile platforms, balancing geometric compression and visual fidelity.</p>
             </div>
           </article>
@@ -504,8 +538,7 @@
         <h2 id="skills-title">Skills</h2>
         <dl class="skills">
           <div class="skill-group"><dt>Programming</dt><dd>Python, C++, Bash</dd></div>
-          <div class="skill-group"><dt>Development</dt><dd>GitHub, uv, Anaconda, Makefile</dd></div>
-          <div class="skill-group"><dt>Environment</dt><dd>Docker, SSH</dd></div>
+          <div class="skill-group"><dt>Development</dt><dd>GitHub, Makefile</dd></div>
           <div class="skill-group"><dt>AI tools</dt><dd>Claude Code, Codex, Skills, MCP</dd></div>
           <div class="skill-group"><dt>Languages</dt><dd>Mandarin (Native), English (Professional)</dd></div>
         </dl>
@@ -513,7 +546,7 @@
       <footer class="footer">
         <div class="footer-meta">
           <p>LI Zhuofei &middot; Hong Kong</p>
-          <p>Last updated: <time datetime="2026-09-30">Sep 30, 2026</time></p>
+          <p>Last updated: <time datetime="2026-10-02">Oct 2, 2026</time></p>
         </div>
         <a href="#top">Back to top</a>
       </footer>
@@ -531,7 +564,8 @@
       function updateCurrentSection() {
         framePending = false;
         // A stable reading line avoids competing highlights when two sections are visible.
-        const readingLine = Math.min(160, Math.max(96, window.innerHeight * 0.2));
+        // Anchored sections land 96px from the top (scroll padding + margin), so keep the line clear of that.
+        const readingLine = Math.min(160, Math.max(120, window.innerHeight * 0.2));
         let current = sections[0];
         for (const section of sections) {
           if (section.getBoundingClientRect().top <= readingLine) current = section;
@@ -573,6 +607,13 @@
         if (!pointerMotion.matches || event.pointerType !== 'mouse') return;
         pointerX = event.clientX;
         pointerY = event.clientY;
+        if (!spotlight.hasAttribute('data-active')) {
+          // Place the glow before it fades in so it does not sweep in from the previous position.
+          spotlight.style.setProperty('--pointer-x', `${pointerX}px`);
+          spotlight.style.setProperty('--pointer-y', `${pointerY}px`);
+          spotlight.setAttribute('data-snap', '');
+          window.requestAnimationFrame(() => window.requestAnimationFrame(() => spotlight.removeAttribute('data-snap')));
+        }
         spotlight.setAttribute('data-active', '');
         if (pointerFramePending) return;
         pointerFramePending = true;
@@ -584,7 +625,7 @@
       }, { passive: true });
       function hideSpotlight() { spotlight.removeAttribute('data-active'); }
       window.addEventListener('blur', hideSpotlight);
-      document.addEventListener('pointerleave', hideSpotlight);
+      document.documentElement.addEventListener('mouseleave', hideSpotlight);
       pointerMotion.addEventListener('change', hideSpotlight);
     })();
   </script>
