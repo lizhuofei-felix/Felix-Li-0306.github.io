@@ -72,9 +72,10 @@ This page should read as a **carefully typeset personal document**. Formality co
 | --- | --- | --- |
 | Page background | `#F1F5F9` | `#0F172A` |
 | Main text | `#0F172A` | `#E2E8F0` |
+| Entry subtitle | `#334155` | `#CBD5E1` |
 | Secondary text | `#475569` | `#94A3B8` |
 | Accent | `#115E59` | `#5EEAD4` |
-| Divider | `#D7E0EB` | `#233249` |
+| Divider | `#D7E0EB` | `#2C3D58` |
 
 **Interaction**
 
